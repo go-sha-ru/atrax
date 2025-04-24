@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ block.super }}
+    {% if phone_info %} - {{ phone_info.phone }}{% endif %}
+{% endblock %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Найти информацию">
+</form>
+    <hr />
+    {% if phone_info %}
+        <p><b>Номер:</b> {{ phone_info.phone }}</p>
+        <p><b>Оператор:</b> {{ phone_info.operator }}</p>
+        <p><b>Регион:</b> {{ phone_info.region }}</p>
+    {% endif %}
+ {% endblock %}
