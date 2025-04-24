@@ -7,8 +7,8 @@ class NumberingRegister(models.Model):
     end = models.BigIntegerField(verbose_name="До")
     capacity = models.IntegerField(verbose_name="Ёмкость")
     operator = models.CharField(max_length=255, verbose_name="Оператор")
-    region = models.CharField(max_length=255, verbose_name="Регион")
-    territory = models.CharField(max_length=255, verbose_name="Территория ГАР")
+    region = models.CharField(max_length=500, verbose_name="Регион")
+    territory = models.TextField(verbose_name="Территория ГАР", blank=True)
     inn = models.CharField(max_length=255, verbose_name="ИНН")
 
     def __str__(self):
